@@ -9,6 +9,14 @@ public class OutInstruction extends Instruction{
         super(label, op);
     }
 
+    public OutInstruction(String label, int op1, Translator translator){
+        this(label, "out");
+        this.op1 = op1;
+    }
+
+
+
+
 
     @Override
     public void execute(Machine m){
