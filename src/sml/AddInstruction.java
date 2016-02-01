@@ -23,6 +23,8 @@ public class AddInstruction extends Instruction {
         this.op2 = op2;
     }
 
+    // Retrieve what is stored in the register and store them in value
+    //1 and 2, and then save the result in the result register.
     @Override
     public void execute(Machine m) {
         int value1 = m.getRegisters().getRegister(op1);
