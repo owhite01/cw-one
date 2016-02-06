@@ -4,15 +4,18 @@ public class BnzInstructor extends Instruction {
 
     //Only need one register of S1 in the class
     private int op1;
+    private String nextLabel;
+
 
     public BnzInstructor(String label, String op) {
         super(label, op);
     }
 
     //Use correct label, in this case 'bnz'
-    public BnzInstructor(String label, int op1) {
+    public BnzInstructor(String label, int op1, String nextLabel) {
         this(label, "bnz");
         this.op1 = op1;
+        this.nextLabel = nextLabel;
     }
 
 
@@ -21,14 +24,12 @@ public class BnzInstructor extends Instruction {
     @Override
     public void execute(Machine m) {
         if (m.getRegisters().getRegister(op1) != 0){
-            //make the statement labeled L2 the next one to execute??
-
+            m.setPc(m.getLabels().indexOf(nextLabel));
         }
 
     }
 
     @Override
     public String toString() {
-        return null;
-    }
+        return super.toString() + " " + op1 + " to " + nextLabel;    }
 }
