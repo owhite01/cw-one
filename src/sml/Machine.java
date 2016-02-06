@@ -1,6 +1,8 @@
 package sml;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /*
  * The machine language interpreter
