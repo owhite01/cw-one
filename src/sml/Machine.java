@@ -36,7 +36,7 @@ public class Machine {
     public static void main(String[] args) {
 
         Machine m = new Machine();
-        Translator t = new Translator("test01");
+        Translator t = new Translator("test02");
         t.readAndTranslate(m.getLabels(), m.getProg());
 
         System.out.println("Here is the program; it has " + m.getProg().size() + " instructions.");
@@ -46,13 +46,12 @@ public class Machine {
         System.out.print("The output of the program is ");
         m.execute();
         System.out.println("Ending program execution.");
+        System.out.println(" ");
         System.out.println("Values of registers at program termination:");
 
 
         //Used for debugging
-        //System.out.println(m.getLabels());
-        //System.out.println(m.getPc());
-
+        System.out.println(m.getLabels());
 
 
 

@@ -1,18 +1,18 @@
 package sml;
 
-public class BnzInstructor extends Instruction {
+public class BnzInstruction extends Instruction {
 
     //Only need one register of S1 in the class
     private int op1;
     private String nextLabel;
 
 
-    public BnzInstructor(String label, String op) {
+    public BnzInstruction(String label, String op) {
         super(label, op);
     }
 
     //Use correct label, in this case 'bnz'
-    public BnzInstructor(String label, int op1, String nextLabel) {
+    public BnzInstruction(String label, int op1, String nextLabel) {
         this(label, "bnz");
         this.op1 = op1;
         this.nextLabel = nextLabel;
@@ -31,6 +31,6 @@ public class BnzInstructor extends Instruction {
 
     @Override
     public String toString() {
-        return super.toString() + op1 + nextLabel;
+        return super.toString() + " " + op1 + " " + nextLabel;
     }
 }
