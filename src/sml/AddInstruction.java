@@ -3,7 +3,7 @@ package sml;
 /**
  * This class ....
  *
- * @author someone
+ * @author Oliver White
  */
 
 public class AddInstruction extends Instruction {

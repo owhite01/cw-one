@@ -31,5 +31,6 @@ public class BnzInstructor extends Instruction {
 
     @Override
     public String toString() {
-        return super.toString() + op1 + nextLabel;    }
+        return super.toString() + op1 + nextLabel;
+    }
 }
