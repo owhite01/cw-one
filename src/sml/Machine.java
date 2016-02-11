@@ -43,9 +43,17 @@ public class Machine {
         System.out.println(m);
 
         System.out.println("Beginning program execution.");
+        System.out.print("The output of the program is ");
         m.execute();
         System.out.println("Ending program execution.");
         System.out.println("Values of registers at program termination:");
+
+
+        //Used for debugging
+        //System.out.println(m.getLabels());
+        //System.out.println(m.getPc());
+
+
 
 
         System.out.println(m.getRegisters() + ".");

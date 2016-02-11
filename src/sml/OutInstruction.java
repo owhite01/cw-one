@@ -9,7 +9,7 @@ public class OutInstruction extends Instruction{
         super(label, op);
     }
 
-    public OutInstruction(String label, int op1, Translator translator){
+    public OutInstruction(String label, int op1){
         this(label, "out");
         this.op1 = op1;
     }
@@ -27,7 +27,7 @@ public class OutInstruction extends Instruction{
 
     @Override
     public String toString() {
-        return super.toString() + op1;
+        return super.toString() + " " + op1;
 
 
     }
