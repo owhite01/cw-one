@@ -121,9 +121,6 @@ public class Translator {
                 nextLabel = scan();
                 return new BnzInstruction(label, r, nextLabel);
 
-
-
-
         }
 
         // You will have to write code here for the other instructions.
