@@ -82,6 +82,11 @@ public class Translator {
             return null;
 
         String ins = scan();
+
+        //Attempt at reflection
+
+
+
         switch (ins) {
             case "add":
                 r = scanInt();
