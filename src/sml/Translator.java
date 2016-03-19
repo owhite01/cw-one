@@ -88,17 +88,26 @@ public class Translator {
         String instruction_name = props.getProperty(ins);
         Instruction instruction = null;
         Class<?> instruction_class;
-        instruction_class = Class.forName(instruction_name);
+
+        try{
+            instruction_class = Class.forName(instruction_name);
+            // Get an array of public constructors for the given instruction class.
+            Constructor<?>[] all_constructors = instruction_class.getConstructors();
+
+            // Get the second constructor
+            Constructor<?> constructor = all_constructors[1];
+
+            // Get an array of the constructors parameter types
+            Class<?>[] parameter_types  = constructor.getParameterTypes();
+
+        }catch(ClassNotFoundException e){
+            System.out.println(e.getMessage());
 
 
-        // Get an array of public constructors for the given instruction class.
-        Constructor<?>[] all_constructors = instruction_class.getConstructors();
+        }
 
-        // Get the second constructor
-        Constructor<?> constructor = all_constructors[1];
 
-        // Get an array of the constructors parameter types
-        Class<?>[] parameter_types  = constructor.getParameterTypes();
+
 
 
         return instruction;
