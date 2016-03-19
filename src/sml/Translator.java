@@ -2,9 +2,11 @@ package sml;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.Properties;
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -81,9 +83,27 @@ public class Translator {
         if (line.equals(""))
             return null;
 
+        Properties props = new Properties();
         String ins = scan();
+        String instruction_name = props.getProperty(ins);
+        Instruction instruction = null;
+        Class<?> instruction_class;
+        instruction_class = Class.forName(instruction_name);
 
-        //Attempt at reflection
+
+        // Get an array of public constructors for the given instruction class.
+        Constructor<?>[] all_constructors = instruction_class.getConstructors();
+
+        // Get the second constructor
+        Constructor<?> constructor = all_constructors[1];
+
+        // Get an array of the constructors parameter types
+        Class<?>[] parameter_types  = constructor.getParameterTypes();
+
+
+        return instruction;
+
+/*        String ins = scan();
 
 
 
@@ -130,7 +150,7 @@ public class Translator {
 
         // You will have to write code here for the other instructions.
 
-        return null;
+        return null;*/
     }
 
     /*
