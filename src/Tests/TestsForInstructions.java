@@ -1,5 +1,6 @@
 package Tests;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -7,24 +8,37 @@ import sml.*;
 
 
 public class TestsForInstructions {
+    private Machine m;
+    private Registers r;
 
-    Machine m = new Machine();
+
 
     @Before
     public void initialise(){
+        m = new Machine();
         m.setPc(0);
-        m.setRegisters(new Registers());
+        r = new Registers();
+        m.setRegisters(r);
 
     }
 
 
+
     @Test
     public void testToEnsureAddInstructionWorks() {
-        Instruction instructionLin = new LinInstruction("f0", 1, 5);
-        instructionLin.execute(m);
+        Instruction LinIns0 = new LinInstruction("f0", 4, 6);
+        LinIns0.execute(m);
+        Instruction LinIns1 = new LinInstruction("f1", 5, 2);
+        LinIns1.execute(m);
 
-        assertEquals(m.getRegisters().getRegister(1), 5);
-        assertEquals(m.getRegisters().getRegister(2), -1);
+        assertEquals(m.getRegisters().getRegister(4), 6);
+        assertEquals(m.getRegisters().getRegister(5), 2);
+
+        Instruction addIns = new AddInstruction("f2", 4, 4, 5);
+        addIns.execute(m);
+        assertEquals(m.getRegisters().getRegister(4), 8);
+
+
 
     }
 
