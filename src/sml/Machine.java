@@ -50,7 +50,6 @@ public class Machine {
         System.out.println("Values of registers at program termination:");
 
 
-        //Used for debugging
         System.out.println(m.getLabels());
 
 
