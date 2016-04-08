@@ -71,6 +71,22 @@ public class TestsForInstructions {
 
     }
 
+    @Test
+    public void testToEnsureMSubInstructionWorks() {
+        Instruction storeIntsInRegisters5 = new LinInstruction("f0", 10, 18);
+        storeIntsInRegisters5.execute(m);
+        Instruction storeIntsInRegisters6 = new LinInstruction("f1", 16, 6);
+        storeIntsInRegisters6.execute(m);
+
+        assertEquals(m.getRegisters().getRegister(10), 18);
+        assertEquals(m.getRegisters().getRegister(16), 6);
+
+        Instruction SubInstruction1 = new SubInstruction("f2", 10, 10, 16);
+        SubInstruction1.execute(m);
+        assertEquals(m.getRegisters().getRegister(10), 12);
+
+    }
+
 
 
 }

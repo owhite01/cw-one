@@ -1,5 +1,6 @@
 package sml;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -86,8 +87,26 @@ public class Translator {
         if (line.equals(""))
             return null;
 
-
         String ins = scan();
+
+
+
+        //*************************************************************************
+        // ***Tried to get reflection to work but was unsuccessful unfortunately***
+        //*************************************************************************
+/*        Properties properties = new Properties();
+
+
+        try {
+            String className = properties.getProperty(ins);
+            Class c = Class.forName(className);
+            Constructor cons = c.getConstructor(new Class[] {String.class, Translator.class});
+            return (Instruction)cons.newInstance(new Object[] {label, this});
+        } catch(Exception e) {
+            throw new RuntimeException(e);
+        }*/
+
+
 
 
         switch (ins) {
