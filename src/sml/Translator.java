@@ -98,12 +98,17 @@ public class Translator {
 
 
         try {
-            String className = properties.getProperty(ins);
-            Class c = Class.forName(className);
-            Constructor cons = c.getConstructor(new Class[] {String.class, Translator.class});
+            String currentInstruction = properties.getProperty(ins);
+            Class currentClass = Class.forName(className);
+            Package packageName = currentClass.getPackage();
+
+            Constructor cons = currentClass.getConstructor(new Class[] {String.class, Translator.class});
+            Method[] currentClassMethods = currentClass.getMethods();
+
             return (Instruction)cons.newInstance(new Object[] {label, this});
         } catch(Exception e) {
             throw new RuntimeException(e);
+
         }*/
 
 
